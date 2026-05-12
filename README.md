@@ -2,6 +2,8 @@
 
 Personal portfolio website for Zian Fahrudi, built with Next.js. It contains a short profile, work experience, GitHub activity, blog pages, and links to personal tools.
 
+Live website: [ziandev.site](https://ziandev.site)
+
 The design direction is intentionally simple, clean, and not too busy. This portfolio is inspired by [ahmadrosid.com](https://ahmadrosid.com/). Best regards to Ahmad Rosid for the calm and minimal web style reference.
 
 ## Tech Stack
