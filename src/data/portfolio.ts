@@ -31,8 +31,8 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
-    company: "Personal Productivity Apps",
-    role: "Independent App Developer",
+    company: "ZIANDEV",
+    role: "Indie Hacker",
     period: "Present",
     location: "Side Project",
     description:
