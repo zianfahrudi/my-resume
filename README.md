@@ -1,38 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zian Fahrudi Portfolio
+
+Personal portfolio website for Zian Fahrudi, built with Next.js. It contains a short profile, work experience, GitHub activity, blog pages, and links to personal tools.
+
+The design direction is intentionally simple, clean, and not too busy. This portfolio is inspired by [ahmadrosid.com](https://ahmadrosid.com/). Best regards to Ahmad Rosid for the calm and minimal web style reference.
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- React
+- TypeScript
+- Tailwind CSS
+- Vercel
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository:
+
+```bash
+git clone <repository-url>
+cd portfolio
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the site in your browser:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Available Scripts
 
-## Learn More
+Run local development server:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Build for production:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+Start production server after build:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Run lint:
 
-# zian-fahrudi
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```text
+src/app/                 Next.js App Router pages
+src/app/blog/            Blog list and blog detail pages
+src/components/          Reusable UI components
+src/data/                Portfolio and blog content
+src/lib/                 Helper functions
+public/                  Static assets
+```
+
+## Content Editing
+
+Update portfolio profile, experience, and social links here:
+
+```text
+src/data/portfolio.ts
+```
+
+Update blog content here:
+
+```text
+src/data/blog.ts
+```
+
+Each blog post uses a slug, title, excerpt, publish date, read time, tags, and article sections. URLs inside article paragraphs are automatically rendered as clickable links on the detail page.
+
+## Deployment
+
+This project is deployed with [Vercel](https://vercel.com/).
+
+Production build command:
+
+```bash
+npm run build
+```
+
+Vercel usually detects Next.js automatically. After connecting the repository, push changes to the production branch or deploy manually with the Vercel CLI.
+
+## AI-Assisted Development
+
+This portfolio was built and iterated with help from AI coding agents, including Claude Opus 4.7 and Codex GPT-5.5. The AI agents were used to clone, structure, refine, and deploy the project while keeping the final design simple and personal.
