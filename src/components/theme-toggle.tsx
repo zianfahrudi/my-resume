@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type Theme = "dark" | "light";
 
@@ -19,13 +19,7 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setTheme(getInitialTheme());
-    setMounted(true);
-  }, []);
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
   const toggle = () => {
     const next: Theme = theme === "dark" ? "light" : "dark";
@@ -38,7 +32,8 @@ export function ThemeToggle() {
     }
   };
 
-  const label = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+  const label =
+    theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
 
   return (
     <button
@@ -46,9 +41,10 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-label={label}
       title={label}
+      suppressHydrationWarning
       className="flex size-8 items-center justify-center text-[color:var(--muted-foreground)] transition-colors hover:text-[color:var(--foreground)]"
     >
-      {mounted && theme === "light" ? (
+      {theme === "light" ? (
         // Sun icon
         <svg
           xmlns="http://www.w3.org/2000/svg"

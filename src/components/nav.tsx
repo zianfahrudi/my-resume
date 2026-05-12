@@ -1,27 +1,34 @@
+import Link from "next/link";
 import { profile } from "@/data/portfolio";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Nav() {
   return (
     <nav className="flex h-12 items-center">
-      <div className="ml-auto flex h-auto items-center gap-1 px-2 sm:gap-2 sm:px-4">
-        <a
-          href="#about"
-          className="border-r border-[color:var(--border)] px-2 hover:underline sm:px-4"
+      <div className="ml-auto flex h-auto items-center gap-0 px-1 text-sm sm:gap-2 sm:px-4 sm:text-base">
+        <Link
+          href="/#about"
+          className="border-r border-[color:var(--border)] px-1.5 hover:underline sm:px-4"
         >
           About
-        </a>
-        <a
-          href="#experience"
-          className="border-r border-[color:var(--border)] px-2 hover:underline sm:px-4"
+        </Link>
+        <Link
+          href="/#experience"
+          className="border-r border-[color:var(--border)] px-1.5 hover:underline sm:px-4"
         >
           Experience
-        </a>
+        </Link>
+        <Link
+          href="/blog"
+          className="border-r border-[color:var(--border)] px-1.5 hover:underline sm:px-4"
+        >
+          Blog
+        </Link>
         <a
           href="https://tools.ziandev.site"
           target="_blank"
           rel="noopener noreferrer"
-          className="border-r border-[color:var(--border)] px-2 hover:underline sm:px-4"
+          className="border-r border-[color:var(--border)] px-1.5 hover:underline sm:px-4"
         >
           Tools
         </a>
