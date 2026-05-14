@@ -62,7 +62,10 @@ export function Hero() {
         </div>
       </header>
 
-      <section id="about" className="space-y-4 p-8">
+      <section
+        id="about"
+        className="space-y-4 border-b border-[color:var(--border)] p-8"
+      >
         <h2 className="text-balance font-serif text-2xl font-bold md:text-3xl">
           About Me
         </h2>

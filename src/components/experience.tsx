@@ -2,8 +2,8 @@ import { experiences } from "@/data/portfolio";
 
 export function ExperienceSection() {
   return (
-    <section className="border-b border-[color:var(--border)]">
-      <div className="px-8 py-10">
+    <section className="p-8">
+      <div>
         <h2 className="font-serif text-3xl font-bold md:text-4xl">
           Experience
         </h2>
@@ -13,11 +13,11 @@ export function ExperienceSection() {
         </p>
       </div>
 
-      <div className="divide-y divide-[color:var(--border)] border-t border-[color:var(--border)]">
+      <div>
         {experiences.map((exp) => (
           <article
             key={`${exp.company}-${exp.period}`}
-            className="group px-8 py-8 transition-colors hover:bg-[color:var(--muted)]/40"
+            className="group py-6 transition-colors hover:bg-[color:var(--muted)]/40"
           >
             <div className="mb-2 flex flex-wrap items-center gap-2">
               <span className="text-xs font-medium uppercase tracking-widest text-[color:var(--muted-foreground)] opacity-70">
