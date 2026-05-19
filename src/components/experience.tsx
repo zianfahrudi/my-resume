@@ -33,7 +33,6 @@ export function ExperienceSection() {
           <ExperienceItem
             key={`${exp.company}-${exp.period}`}
             exp={exp}
-            defaultOpen={i === 0}
           />
         ))}
       </ul>

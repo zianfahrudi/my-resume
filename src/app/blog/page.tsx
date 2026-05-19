@@ -20,23 +20,13 @@ export default function BlogPage() {
       <main className="relative min-h-screen">
         <div className="mx-auto max-w-4xl border-x border-[color:var(--border)]">
           <Nav />
-          <section className="border-y border-[color:var(--border)] px-8 py-10">
+          <section className="border-y border-[color:var(--border)] px-8 py-6">
             <Link
               href="/"
-              className="mb-6 inline-flex text-sm text-[color:var(--muted-foreground)] transition-colors hover:text-[color:var(--foreground)]"
+              className="inline-flex text-sm text-[color:var(--muted-foreground)] transition-colors hover:text-[color:var(--foreground)]"
             >
               ← Back to home
             </Link>
-            <p className="mb-3 text-xs font-medium uppercase tracking-widest text-[color:var(--muted-foreground)]">
-              Blog
-            </p>
-            <h1 className="font-serif text-4xl font-bold md:text-5xl">
-              Notes from building apps and tools.
-            </h1>
-            <p className="mt-3 max-w-2xl text-lg text-[color:var(--muted-foreground)]">
-              Short field notes on Flutter, indie hacking, personal
-              productivity, and the small decisions behind shipping.
-            </p>
           </section>
 
           <section className="divide-y divide-[color:var(--border)] border-b border-[color:var(--border)]">
