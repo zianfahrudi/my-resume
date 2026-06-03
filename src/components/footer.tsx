@@ -10,11 +10,11 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="relative mt-12 flex items-center justify-between gap-3 border-y border-[color:var(--border)] p-8">
-      <p className="text-xs text-[color:var(--muted-foreground)] sm:text-sm">
+    <footer className="relative mt-12 flex flex-col items-center gap-5 border-y border-[color:var(--border)] px-6 py-8 sm:flex-row sm:justify-between sm:gap-3 sm:px-8">
+      <p className="order-3 text-center text-xs text-[color:var(--muted-foreground)] sm:order-none sm:text-left sm:text-sm">
         © {new Date().getFullYear()} {profile.name}
       </p>
-      <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-3 text-sm text-[color:var(--muted-foreground)]">
+      <div className="order-1 flex items-center gap-3 text-sm text-[color:var(--muted-foreground)] sm:absolute sm:left-1/2 sm:order-none sm:-translate-x-1/2">
         <a
           href="/privacy"
           className="transition-colors hover:text-[color:var(--foreground)]"
@@ -33,7 +33,7 @@ export function Footer() {
       </div>
       <nav
         aria-label="Social links"
-        className="flex flex-wrap items-center justify-end gap-2 text-[color:var(--muted-foreground)] sm:gap-3"
+        className="order-2 flex flex-wrap items-center justify-center gap-3 text-[color:var(--muted-foreground)] sm:order-none sm:justify-end"
       >
         {socials.map((item) => (
           <a

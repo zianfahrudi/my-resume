@@ -1,7 +1,9 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
 import { GithubActivity } from "@/components/github-activity";
+import { AppLogoMarquee } from "@/components/app-logo-marquee";
 import { ExperienceSection } from "@/components/experience";
+import { SkillsSection } from "@/components/skills";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -16,9 +18,11 @@ export default function Home() {
           <Nav />
           <Hero />
           <GithubActivity />
+          <AppLogoMarquee />
           <section id="experience">
             <ExperienceSection />
           </section>
+          <SkillsSection />
           <Footer />
         </div>
       </main>

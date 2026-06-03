@@ -47,3 +47,72 @@ html.dark {
 html.light {
   color-scheme: light;
 }
+
+.logo-marquee {
+  position: relative;
+  overflow-x: clip;
+  overflow-y: visible;
+  overflow-clip-margin: 3rem;
+}
+
+.logo-marquee::before,
+.logo-marquee::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+  width: 4rem;
+  pointer-events: none;
+  content: "";
+}
+
+.logo-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--background), transparent);
+}
+
+.logo-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--background), transparent);
+}
+
+.logo-marquee__track {
+  animation: logo-marquee 42s linear infinite;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.logo-marquee:hover .logo-marquee__track,
+.logo-marquee:focus-within .logo-marquee__track {
+  animation-play-state: paused;
+}
+
+.app-logo-item:hover .app-logo-card,
+.app-logo-item:focus .app-logo-card {
+  transform: translateY(-0.25rem) !important;
+  border-color: rgb(16 185 129 / 0.55) !important;
+  background: var(--muted) !important;
+  box-shadow: 0 10px 28px rgb(16 185 129 / 0.1) !important;
+}
+
+.app-logo-item:focus .app-logo-card {
+  outline: 2px solid rgb(16 185 129 / 0.4) !important;
+  outline-offset: 2px !important;
+}
+
+@keyframes logo-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee__track {
+    animation: none;
+  }
+}

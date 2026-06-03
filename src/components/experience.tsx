@@ -29,7 +29,7 @@ export function ExperienceSection() {
       </div>
 
       <ul className="divide-y divide-[color:var(--border)]">
-        {experiences.map((exp, i) => (
+        {experiences.map((exp) => (
           <ExperienceItem
             key={`${exp.company}-${exp.period}`}
             exp={exp}
