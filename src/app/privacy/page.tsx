@@ -4,7 +4,14 @@ import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
 import { profile } from "@/data/portfolio";
 
-const privacySections = [
+type PrivacySection = {
+  title: string;
+  paragraphs: string[];
+  steps?: string[];
+  afterSteps?: string[];
+};
+
+const privacySections: PrivacySection[] = [
   {
     title: "Information We Collect",
     paragraphs: [
@@ -49,7 +56,23 @@ const privacySections = [
   {
     title: "Your Choices",
     paragraphs: [
-      "You may contact us to ask questions about your data, request corrections, or request deletion where applicable. You may also control certain permissions through your device, browser, or app settings.",
+      "You may contact us to ask questions about your data or request corrections. You may also control certain permissions through your device, browser, or app settings.",
+    ],
+  },
+  {
+    title: "Data Deletion",
+    paragraphs: [
+      "You can request deletion of your account and all associated data at any time.",
+      "To request data deletion:",
+    ],
+    steps: [
+      `Send an email to ${profile.email} with the subject line "Data Deletion Request"`,
+      "Include the email address or username associated with your account",
+      "Specify the app name for which you are requesting deletion",
+    ],
+    afterSteps: [
+      "Once we receive your request, we will delete your account and associated data within 30 days. Some information may be retained where required by law or for legitimate business purposes, such as fraud prevention or legal compliance.",
+      "If any of our apps offer an in-app account deletion feature, you may also delete your account directly within the app via Settings.",
     ],
   },
   {
@@ -72,6 +95,48 @@ export const metadata: Metadata = {
   description:
     "Privacy Policy for ZIANDEV websites, applications, and services.",
 };
+
+const website = "https://ziandev.site";
+
+function renderWithLinks(text: string) {
+  const pattern = new RegExp(
+    `(${profile.email.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}|${website.replace(
+      /[.*+?^${}()|[\]\\]/g,
+      "\\$&",
+    )})`,
+    "g",
+  );
+
+  return text.split(pattern).map((part, index) => {
+    if (part === profile.email) {
+      return (
+        <a
+          key={index}
+          href={`mailto:${profile.email}`}
+          className="text-emerald-500 underline underline-offset-4 transition-colors hover:text-emerald-400"
+        >
+          {profile.email}
+        </a>
+      );
+    }
+
+    if (part === website) {
+      return (
+        <a
+          key={index}
+          href={website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-emerald-500 underline underline-offset-4 transition-colors hover:text-emerald-400"
+        >
+          {website}
+        </a>
+      );
+    }
+
+    return <span key={index}>{part}</span>;
+  });
+}
 
 export default function PrivacyPage() {
   return (
@@ -114,32 +179,24 @@ export default function PrivacyPage() {
                         key={paragraph}
                         className="text-lg leading-8 text-[color:var(--muted-foreground)]"
                       >
-                        {paragraph.includes(profile.email) ? (
-                          <>
-                            For privacy questions or support, contact ZIANDEV at{" "}
-                            <a
-                              href={`mailto:${profile.email}`}
-                              className="text-emerald-500 underline underline-offset-4 transition-colors hover:text-emerald-400"
-                            >
-                              {profile.email}
-                            </a>
-                            .
-                          </>
-                        ) : paragraph.includes("https://ziandev.site") ? (
-                          <>
-                            Website:{" "}
-                            <a
-                              href="https://ziandev.site"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-emerald-500 underline underline-offset-4 transition-colors hover:text-emerald-400"
-                            >
-                              https://ziandev.site
-                            </a>
-                          </>
-                        ) : (
-                          paragraph
-                        )}
+                        {renderWithLinks(paragraph)}
+                      </p>
+                    ))}
+
+                    {section.steps ? (
+                      <ol className="list-decimal space-y-2 pl-6 text-lg leading-8 text-[color:var(--muted-foreground)]">
+                        {section.steps.map((step) => (
+                          <li key={step}>{renderWithLinks(step)}</li>
+                        ))}
+                      </ol>
+                    ) : null}
+
+                    {section.afterSteps?.map((paragraph) => (
+                      <p
+                        key={paragraph}
+                        className="text-lg leading-8 text-[color:var(--muted-foreground)]"
+                      >
+                        {renderWithLinks(paragraph)}
                       </p>
                     ))}
                   </div>
